@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name         Amap Việt hóa
 // @namespace    http://tampermonkey.net/
-// @version      0.2.1
+// @version      0.3.0
 // @description  Việt hóa giao diện Amap.com sang tiếng Việt
 // @author       hieuck
 // @match        https://www.amap.com/*
 // @match        https://*.amap.com/*
+// @match        https://id.amap.com/*
 // @grant        none
 // @run-at       document-end
 // @updateURL    https://github.com/hieuck/amap-vh/raw/master/amap-vietnamese.user.js
@@ -17,17 +18,21 @@
 (function() {
     'use strict';
 
-    // Từ điển dịch Trung - Việt (mở rộng)
+    // Từ điển dịch Trung - Việt (mở rộng v0.3)
     const translations = {
         // Tìm kiếm
         '搜索': 'Tìm kiếm',
         '搜': 'Tìm',
         '请输入关键词': 'Nhập từ khóa',
         '请输入地点': 'Nhập địa điểm',
+        '请输入地址': 'Nhập địa chỉ',
+        '请输入起点': 'Nhập điểm đầu',
+        '请输入终点': 'Nhập điểm cuối',
         '查询': 'Tra cứu',
         '查找': 'Tìm',
         '搜索结果': 'Kết quả tìm kiếm',
         '没有找到相关结果': 'Không tìm thấy kết quả',
+        '搜索历史': 'Lịch sử tìm kiếm',
         
         // Điều hướng
         '路线': 'Tuyến đường',
@@ -49,6 +54,9 @@
         '最快路线': 'Nhanh nhất',
         '最短路线': 'Ngắn nhất',
         '少收费': 'Ít phí',
+        '方案': 'Phương án',
+        '换一换': 'Đổi khác',
+        '反馈问题': 'Phản hồi vấn đề',
         
         // Phương tiện
         '驾车': 'Ô tô',
@@ -75,6 +83,7 @@
         '停车场': 'Bãi đỗ xe',
         '周边': 'Xung quanh',
         '附近的': 'Gần đây',
+        '地图选点': 'Chọn điểm trên bản đồ',
         
         // Loại địa điểm
         '餐饮': 'Ăn uống',
@@ -118,6 +127,8 @@
         '返回': 'Quay lại',
         '刷新': 'Làm mới',
         '下载': 'Tải về',
+        '发送': 'Gửi',
+        '提交反馈': 'Gửi phản hồi',
         
         // Menu
         '首页': 'Trang chủ',
@@ -135,18 +146,29 @@
         '我的收藏': 'Yêu thích của tôi',
         '历史记录': 'Lịch sử',
         '清除历史': 'Xóa lịch sử',
+        '退出登录': 'Đăng xuất',
+        '忘记密码': 'Quên mật khẩu',
+        '记住我': 'Ghi nhớ',
+        '密码': 'Mật khẩu',
+        '用户名': 'Tên người dùng',
+        '手机号': 'Số điện thoại',
+        '验证码': 'Mã xác thực',
+        '获取验证码': 'Lấy mã',
         
         // Bản đồ
         '放大': 'Phóng to',
         '缩小': 'Thu nhỏ',
         '定位': 'Định vị',
         '当前位置': 'Vị trí hiện tại',
+        '我的位置': 'Vị trí của tôi',
         '卫星图': 'Vệ tinh',
         '路况': 'Giao thông',
         '拥堵': 'Tắc đường',
         '畅通': 'Thông thoáng',
         '缓行': 'Chậm',
         '图层': 'Lớp bản đồ',
+        '测距': 'Đo khoảng cách',
+        '标记': 'Đánh dấu',
         
         // Đơn vị
         '公里': 'km',
@@ -157,6 +179,7 @@
         '天': 'ngày',
         '元': '¥',
         '约': 'Khoảng',
+        '预计': 'Dự kiến',
         
         // Thời gian
         '今天': 'Hôm nay',
@@ -177,6 +200,27 @@
         '右转': 'Rẽ phải',
         '直行': 'Đi thẳng',
         '掉头': 'Quay đầu',
+        '进入': 'Vào',
+        '出口': 'Lối ra',
+        '入口': 'Lối vào',
+        
+        // Phản hồi (Feedback)
+        '问题反馈': 'Phản hồi vấn đề',
+        '反馈类型': 'Loại phản hồi',
+        '问题描述': 'Mô tả vấn đề',
+        '请详细描述您遇到的问题': 'Vui lòng mô tả chi tiết vấn đề',
+        '联系方式': 'Thông tin liên hệ',
+        '手机': 'Điện thoại',
+        '邮箱': 'Email',
+        '上传图片': 'Tải ảnh lên',
+        '提交': 'Gửi',
+        '感谢您的反馈': 'Cảm ơn phản hồi của bạn',
+        '数据错误': 'Lỗi dữ liệu',
+        '功能建议': 'Đề xuất tính năng',
+        '其他问题': 'Vấn đề khác',
+        '地图问题': 'Vấn đề bản đồ',
+        '导航问题': 'Vấn đề điều hướng',
+        '搜索问题': 'Vấn đề tìm kiếm',
         
         // Khác
         '附近': 'Gần đây',
@@ -187,7 +231,6 @@
         '取消': 'Hủy',
         '确定': 'OK',
         '确认': 'Xác nhận',
-        '提交': 'Gửi',
         '已': 'Đã',
         '未': 'Chưa',
         '是': 'Có',
@@ -201,6 +244,25 @@
         '重试': 'Thử lại',
         '成功': 'Thành công',
         '失败': 'Thất bại',
+        '提示': 'Thông báo',
+        '警告': 'Cảnh báo',
+        '错误': 'Lỗi',
+        '正在': 'Đang',
+        '完成': 'Hoàn thành',
+        '继续': 'Tiếp tục',
+        '下一步': 'Tiếp theo',
+        '上一步': 'Quay lại',
+        '跳过': 'Bỏ qua',
+        '同意': 'Đồng ý',
+        '不同意': 'Không đồng ý',
+        '我知道了': 'Tôi hiểu rồi',
+        '查看': 'Xem',
+        '查看详情': 'Xem chi tiết',
+        '更新': 'Cập nhật',
+        '版本': 'Phiên bản',
+        '语言': 'Ngôn ngữ',
+        '中文': 'Tiếng Trung',
+        '英文': 'Tiếng Anh',
     };
 
     // Hàm thay thế text trong node
@@ -218,7 +280,7 @@
             for (let chinese of sortedKeys) {
                 const vietnamese = translations[chinese];
                 if (newText.includes(chinese)) {
-                    newText = newText.replace(new RegExp(chinese, 'g'), vietnamese);
+                    newText = newText.replace(new RegExp(chinese.replace(/[.*+?^${}()|[\]\]/g, '\$&'), 'g'), vietnamese);
                     translated = true;
                 }
             }
@@ -228,56 +290,4 @@
             }
         } else if (node.nodeType === Node.ELEMENT_NODE) {
             // Bỏ qua các thẻ script và style
-            if (node.tagName === 'SCRIPT' || node.tagName === 'STYLE') {
-                return;
-            }
-            
-            // Dịch placeholder
-            if (node.placeholder) {
-                let translated = node.placeholder;
-                for (let [chinese, vietnamese] of Object.entries(translations)) {
-                    translated = translated.replace(new RegExp(chinese, 'g'), vietnamese);
-                }
-                node.placeholder = translated;
-            }
-            
-            // Dịch title
-            if (node.title) {
-                let translated = node.title;
-                for (let [chinese, vietnamese] of Object.entries(translations)) {
-                    translated = translated.replace(new RegExp(chinese, 'g'), vietnamese);
-                }
-                node.title = translated;
-            }
-            
-            // Dịch aria-label
-            if (node.getAttribute('aria-label')) {
-                let translated = node.getAttribute('aria-label');
-                for (let [chinese, vietnamese] of Object.entries(translations)) {
-                    translated = translated.replace(new RegExp(chinese, 'g'), vietnamese);
-                }
-                node.setAttribute('aria-label', translated);
-            }
-            
-            // Dịch các node con
-            for (let child of node.childNodes) {
-                translateNode(child);
-            }
-        }
-    }
-
-    // Dịch toàn bộ trang
-    function translatePage() {
-        translateNode(document.body);
-    }
-
-    // Chạy dịch ban đầu sau một khoảng thời gian ngắn
-    setTimeout(translatePage, 500);
-    setTimeout(translatePage, 1500);
-    setTimeout(translatePage, 3000);
-
-    // Theo dõi thay đổi DOM để dịch nội dung động
-    const observer = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
-            mutation.addedNodes.forEach((node) => {
-                translateNod
+            if (node.tagName === 'SCRIPT' || node.ta
