@@ -1,13 +1,17 @@
 // ==UserScript==
 // @name         Amap Việt hóa
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.2.1
 // @description  Việt hóa giao diện Amap.com sang tiếng Việt
 // @author       hieuck
 // @match        https://www.amap.com/*
 // @match        https://*.amap.com/*
 // @grant        none
 // @run-at       document-end
+// @updateURL    https://github.com/hieuck/amap-vh/raw/master/amap-vietnamese.user.js
+// @downloadURL  https://github.com/hieuck/amap-vh/raw/master/amap-vietnamese.user.js
+// @supportURL   https://github.com/hieuck/amap-vh/issues
+// @homepageURL  https://github.com/hieuck/amap-vh
 // ==/UserScript==
 
 (function() {
@@ -276,16 +280,4 @@
     const observer = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
             mutation.addedNodes.forEach((node) => {
-                translateNode(node);
-            });
-        });
-    });
-
-    // Bắt đầu theo dõi
-    observer.observe(document.body, {
-        childList: true,
-        subtree: true
-    });
-
-    console.log('Amap Việt hóa v0.2 đã được kích hoạt - 200+ từ');
-})();
+                translateNod
