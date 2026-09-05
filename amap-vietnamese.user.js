@@ -2,7 +2,7 @@
 // @name         Amap Việt hóa
 // @namespace    http://tampermonkey.net/
 // @version      0.3.1
-// @description  Việt hóa giao diện Amap.com sang tiếng Việt
+// @description  Việt hóa giao diện Amap.com sang tiếng Việt - 300+ từ
 // @author       hieuck
 // @match        https://www.amap.com/*
 // @match        https://*.amap.com/*
