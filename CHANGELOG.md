@@ -2,6 +2,26 @@
 
 Tất cả các thay đổi quan trọng của dự án sẽ được ghi chép tại đây.
 
+## [0.3.0] - 2026-09-05
+
+### Added
+- Mở rộng từ điển lên 300+ từ
+- Hỗ trợ domain `id.amap.com` (trang đăng nhập)
+- Thêm từ về phản hồi/feedback: vấn đề bản đồ, điều hướng, tìm kiếm
+- Thêm từ về đăng nhập/đăng ký: tài khoản, mật khẩu, mã xác thực
+- Thêm từ về thông báo: thành công, thất bại, cảnh báo
+- Thêm từ về hành động: tiếp tục, bỏ qua, đồng ý
+- Dịch thêm attribute `value` cho input/button
+- Thêm nhiều lần chạy dịch (300ms, 800ms, 1.5s, 3s) để bắt nội dung tải chậm
+
+### Improved
+- Cải thiện regex escape để tránh lỗi với ký tự đặc biệt
+- Tối ưu thuật toán dịch placeholder, title, aria-label
+
+### Fixed
+- Sửa lỗi regex với ký tự đặc biệt trong từ điển
+- Sửa lỗi không dịch được một số button/input
+
 ## [0.2.1] - 2026-09-05
 
 ### Added
