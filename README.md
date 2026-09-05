@@ -2,7 +2,7 @@
 
 Userscript để việt hóa giao diện Amap.com sang tiếng Việt.
 
-## Cài đặt
+## Cài đặt nhanh
 
 ### 1. Cài đặt Tampermonkey
 - Chrome: [Tampermonkey trên Chrome Web Store](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
@@ -10,6 +10,13 @@ Userscript để việt hóa giao diện Amap.com sang tiếng Việt.
 - Edge: [Tampermonkey trên Microsoft Edge](https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd)
 
 ### 2. Cài đặt script
+**Click vào link này để cài đặt trực tiếp:**
+
+👉 **[Cài đặt Amap Việt hóa](https://github.com/hieuck/amap-vh/raw/master/amap-vietnamese.user.js)** 👈
+
+Tampermonkey sẽ tự động hiện popup, nhấn **Install** là xong!
+
+### Hoặc cài đặt thủ công
 1. Click vào biểu tượng Tampermonkey trên thanh công cụ
 2. Chọn "Create a new script..."
 3. Xóa nội dung mặc định
@@ -17,24 +24,29 @@ Userscript để việt hóa giao diện Amap.com sang tiếng Việt.
 5. Nhấn Ctrl+S (hoặc Cmd+S trên Mac) để lưu
 6. Truy cập [Amap.com](https://www.amap.com) để thấy giao diện đã được việt hóa
 
-### Hoặc cài đặt trực tiếp
-Click vào link sau để cài đặt trực tiếp (sau khi đã cài Tampermonkey):
-- [Cài đặt Amap Việt hóa](https://github.com/hieuck/amap-vh/raw/master/amap-vietnamese.user.js)
-
 ## Tính năng
 
-- Tự động dịch các thành phần giao diện chính:
-  - Menu điều hướng
-  - Nút tìm kiếm và chức năng
-  - Thông tin địa điểm
-  - Tuyến đường và phương tiện
-  - Placeholder và tooltip
-- Theo dõi thay đổi DOM để dịch nội dung được tải động
+- Tự động dịch 200+ thuật ngữ phổ biến:
+  - Menu điều hướng và tìm kiếm
+  - Thông tin địa điểm (địa chỉ, điện thoại, giờ mở cửa)
+  - Tuyến đường và phương tiện (ô tô, xe buýt, đi bộ, xe đạp)
+  - Loại địa điểm (nhà hàng, khách sạn, siêu thị, ngân hàng)
+  - Tình hình giao thông (tắc đường, thông thoáng)
+  - Hướng di chuyển (đông/tây/nam/bắc, rẽ trái/phải)
+- Theo dõi thay đổi DOM để dịch nội dung động
+- Thuật toán dịch thông minh, tránh dịch nhầm
 - Không ảnh hưởng đến hiệu năng trang web
 
-## Từ điển
+## Hướng dẫn chi tiết
 
-Hiện tại script hỗ trợ dịch các thuật ngữ phổ biến nhất. Bạn có thể mở rộng từ điển bằng cách chỉnh sửa object `translations` trong file script.
+Xem [USAGE.md](USAGE.md) để biết thêm chi tiết về:
+- Cách tùy chỉnh và thêm từ mới
+- Khắc phục sự cố
+- FAQ
+
+## Changelog
+
+Xem [CHANGELOG.md](CHANGELOG.md) để biết lịch sử phiên bản.
 
 ## Đóng góp
 
