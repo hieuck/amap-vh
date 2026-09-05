@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Amap Việt hóa
 // @namespace    http://tampermonkey.net/
-// @version      0.3.0
+// @version      0.3.1
 // @description  Việt hóa giao diện Amap.com sang tiếng Việt
 // @author       hieuck
 // @match        https://www.amap.com/*
