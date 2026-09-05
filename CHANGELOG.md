@@ -2,6 +2,17 @@
 
 Tất cả các thay đổi quan trọng của dự án sẽ được ghi chép tại đây.
 
+## [0.2.1] - 2026-09-05
+
+### Added
+- Thêm `@updateURL` và `@downloadURL` để Tampermonkey tự động kiểm tra và cập nhật script
+- Thêm `@supportURL` link đến GitHub Issues
+- Thêm `@homepageURL` link đến repository
+
+### Changed
+- Tampermonkey sẽ tự động kiểm tra cập nhật mỗi ngày
+- Người dùng có thể cập nhật thủ công từ Tampermonkey Dashboard
+
 ## [0.2] - 2026-09-05
 
 ### Added
