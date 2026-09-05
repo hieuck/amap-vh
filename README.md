@@ -1,6 +1,15 @@
 # Amap Việt hóa
 
+[![Version](https://img.shields.io/badge/version-0.2.1-blue.svg)](https://github.com/hieuck/amap-vh/releases)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Userscript](https://img.shields.io/badge/userscript-tampermonkey-orange.svg)](https://www.tampermonkey.net/)
+[![Stars](https://img.shields.io/github/stars/hieuck/amap-vh?style=social)](https://github.com/hieuck/amap-vh)
+
 Userscript để việt hóa giao diện Amap.com sang tiếng Việt.
+
+🌐 **[Website](https://hieuck.github.io/amap-vh/)** | 📥 **[Cài đặt ngay](https://github.com/hieuck/amap-vh/raw/master/amap-vietnamese.user.js)** | 📖 **[Hướng dẫn](USAGE.md)** | 📝 **[Changelog](CHANGELOG.md)**
+
+---
 
 ## Cài đặt nhanh
 
@@ -24,18 +33,49 @@ Tampermonkey sẽ tự động hiện popup, nhấn **Install** là xong!
 5. Nhấn Ctrl+S (hoặc Cmd+S trên Mac) để lưu
 6. Truy cập [Amap.com](https://www.amap.com) để thấy giao diện đã được việt hóa
 
+---
+
 ## Tính năng
 
-- Tự động dịch 200+ thuật ngữ phổ biến:
-  - Menu điều hướng và tìm kiếm
-  - Thông tin địa điểm (địa chỉ, điện thoại, giờ mở cửa)
-  - Tuyến đường và phương tiện (ô tô, xe buýt, đi bộ, xe đạp)
-  - Loại địa điểm (nhà hàng, khách sạn, siêu thị, ngân hàng)
-  - Tình hình giao thông (tắc đường, thông thoáng)
-  - Hướng di chuyển (đông/tây/nam/bắc, rẽ trái/phải)
-- Theo dõi thay đổi DOM để dịch nội dung động
+### ✨ 200+ thuật ngữ được việt hóa
+
+- 🔍 **Tìm kiếm & Điều hướng** - Tìm kiếm, tuyến đường, điểm đầu/cuối, lập tuyến
+- 🚗 **Phương tiện** - Ô tô, xe buýt, đi bộ, xe đạp, taxi, tàu điện ngầm
+- 📍 **Địa điểm** - Nhà hàng, khách sạn, siêu thị, ngân hàng, trạm xăng, bệnh viện
+- 🗺️ **Bản đồ** - Phóng to/thu nhỏ, định vị, vệ tinh, tình hình giao thông
+- 🧭 **Hướng** - Đông/Tây/Nam/Bắc, rẽ trái/phải, đi thẳng, quay đầu
+- ⏰ **Thời gian** - Hôm nay, ngày mai, sáng/chiều/tối
+
+### 🚀 Hiệu năng cao
+
+- Tự động dịch nội dung động (AJAX/SPA)
+- Theo dõi thay đổi DOM với MutationObserver
 - Thuật toán dịch thông minh, tránh dịch nhầm
-- Không ảnh hưởng đến hiệu năng trang web
+- Không làm chậm trang web
+
+### 🔄 Tự động cập nhật
+
+- Tampermonkey tự động kiểm tra cập nhật mỗi ngày
+- Thông báo khi có phiên bản mới
+- Cập nhật chỉ với 1 click
+
+---
+
+## Demo
+
+Truy cập [https://hieuck.github.io/amap-vh/](https://hieuck.github.io/amap-vh/) để xem hướng dẫn chi tiết với giao diện đẹp mắt.
+
+### Trước và sau khi việt hóa
+
+| Trước | Sau |
+|-------|-----|
+| 搜索 | Tìm kiếm |
+| 导航 | Điều hướng |
+| 驾车 | Ô tô |
+| 路线 | Tuyến đường |
+| 距离 | Khoảng cách |
+
+---
 
 ## Hướng dẫn chi tiết
 
@@ -44,14 +84,48 @@ Xem [USAGE.md](USAGE.md) để biết thêm chi tiết về:
 - Khắc phục sự cố
 - FAQ
 
+---
+
 ## Changelog
 
 Xem [CHANGELOG.md](CHANGELOG.md) để biết lịch sử phiên bản.
 
+**Phiên bản mới nhất: v0.2.1**
+- ✅ 200+ từ việt hóa
+- ✅ Tự động cập nhật
+- ✅ Hỗ trợ nội dung động
+
+---
+
 ## Đóng góp
 
-Mọi đóng góp đều được chào đón! Hãy tạo pull request hoặc báo lỗi qua Issues.
+Mọi đóng góp đều được chào đón! 
+
+### Cách đóng góp
+1. Fork repo này
+2. Tạo branch mới (`git checkout -b feature/AmazingFeature`)
+3. Commit thay đổi (`git commit -m 'Add some AmazingFeature'`)
+4. Push lên branch (`git push origin feature/AmazingFeature`)
+5. Tạo Pull Request
+
+### Báo lỗi hoặc đề xuất
+- [Tạo Issue](https://github.com/hieuck/amap-vh/issues/new)
+- Mô tả rõ vấn đề hoặc đề xuất của bạn
+- Kèm theo screenshot nếu có thể
+
+---
 
 ## License
 
-MIT License
+MIT License - xem file [LICENSE](LICENSE) để biết thêm chi tiết.
+
+---
+
+## Liên hệ
+
+- GitHub: [@hieuck](https://github.com/hieuck)
+- Issues: [GitHub Issues](https://github.com/hieuck/amap-vh/issues)
+
+---
+
+**⭐ Nếu thấy hữu ích, hãy cho repo một star nhé!**
