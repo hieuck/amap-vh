@@ -2,6 +2,20 @@
 
 Tất cả các thay đổi quan trọng của dự án sẽ được ghi chép tại đây.
 
+## [0.3.3] - 2026-09-05
+
+### Added
+- Thêm 30+ từ mới về điều hướng chi tiết
+- Từ về giao thông: đèn giao thông, nút giao, vòng xuyến, hầm, cầu
+- Từ về chuyển làn: chuyển làn, về lề, sát phải, sát trái
+- Từ về phương án: phương án 1/2/3, khá nhanh, khá chậm
+- Từ về xe buýt/tàu điện: chuyến đầu, chuyến cuối, giá vé, trạm, tuyến
+- Từ về hướng: bên phải, bên trái, phía trước, phía sau
+- Từ về cao tốc: trạm thu phí, khu dịch vụ
+
+### Improved
+- Tối ưu từ điển với 99+ từ phổ biến nhất
+
 ## [0.3.2] - 2026-09-05
 
 ### Fixed
@@ -19,38 +33,20 @@ Tất cả các thay đổi quan trọng của dự án sẽ được ghi chép 
 - Hỗ trợ domain `id.amap.com` (trang đăng nhập)
 - Thêm từ về phản hồi/feedback
 - Thêm từ về đăng nhập/đăng ký
-- Thêm từ về thông báo
 - Dịch thêm attribute `value` cho input/button
-- Thêm nhiều lần chạy dịch (300ms, 800ms, 1.5s, 3s)
-
-### Improved
-- Cải thiện regex escape để tránh lỗi với ký tự đặc biệt
-- Tối ưu thuật toán dịch placeholder, title, aria-label
 
 ## [0.2.1] - 2026-09-05
 
 ### Added
-- Thêm `@updateURL` và `@downloadURL` để Tampermonkey tự động kiểm tra và cập nhật script
-- Thêm `@supportURL` link đến GitHub Issues
-- Thêm `@homepageURL` link đến repository
+- Thêm `@updateURL` và `@downloadURL` để tự động cập nhật
 
 ## [0.2] - 2026-09-05
 
 ### Added
 - Mở rộng từ điển lên 200+ từ
 - Thêm các loại địa điểm
-- Thêm từ về tình hình giao thông
-- Thêm từ về hướng di chuyển
-- Thêm từ về thời gian
-
-### Improved
-- Cải thiện thuật toán dịch
-- Dịch thêm aria-label
-- Bỏ qua thẻ script/style
 
 ## [0.1] - 2026-09-05
 
 ### Added
 - Phiên bản đầu tiên với 40+ từ cơ bản
-- Hỗ trợ dịch text nodes, placeholder, title
-- MutationObserver để theo dõi thay đổi DOM
